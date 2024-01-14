@@ -12,10 +12,8 @@ const server = createServer(app);
 const io = new Server(server);
 
 io.on('connection', (socket) => {
-    // console.log('a user connected');
-    socket.on('message',(message)=>{
-        // console.log(message);
-        io.emit('message',message);
+    socket.on('chat message', (msg) => {
+        io.emit('chat message', msg);
     });
 });
 
